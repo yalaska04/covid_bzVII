@@ -2,6 +2,4 @@ from flask import Flask
 
 app = Flask(__name__)
 
-@app.route('/') # abrimos una ruta
-def index(): 
-    return 'Flask está funcionando!'
+from covid import views # lo importamos después de crear la app
