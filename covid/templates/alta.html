@@ -1,0 +1,32 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alta de incidencia por provincia y fecha</title>
+</head>
+<body>
+    <h1>Alta de incidencia diaria Covid</h1>
+    <p>Formulario de alta de incidencias.</p>
+    <p>Aquí podrás insertar la informacion de tu provincia</p>
+    <form action="/incidenciasdiarias" method="post">
+        <div>
+            <label for="provincia">Provincia:</label>
+            <input type="text" name="provincia" placeholder="Escribe la provincia en mayúsculas" required><br>
+            <label for="fecha">Fecha:</label>
+            <input type="date" name="fecha" required><br>
+            <label for="num_casos_prueba_pcr">Pruebas PCR:</label>
+            <input type="text" name="num_casos_prueba_pcr" id="" placeholder="prueba_pcr" required value="{{casos_pcr}}"><br>
+            <label for="num_casos_prueba_test_ac">Tests de anticuerpos:</label>
+            <input type="number" name="num_casos_prueba_test_ac" id="" placeholder="prueba_test_ac" required value="0"><br>
+            <label for="num_casos_prueba_ag">Prueba de antígenos:</label>
+            <input type="number" name="num_casos_prueba_ag" id="" placeholder="prueba_ag" required value="0"><br>
+            <label for="num_casos_prueba_elisa">Test Elisa:</label>
+            <input type="number" name="num_casos_prueba_elisa" id="" placeholder="prueba_elisa" required value="0"><br>
+            <label for="num_casos_prueba_desconocida">Prueba no determinada:</label>
+            <input type="number" name="num_casos_prueba_desconocida" id="" placeholder="prueba_desconocida" required value="0"><br>
+            <button type="submit">Enviar</button>
+        </div>
+      </form>
+    </body>
+</html>
