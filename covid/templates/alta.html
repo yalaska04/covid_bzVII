@@ -11,22 +11,55 @@
     <p>Aquí podrás insertar la informacion de tu provincia</p>
     <form action="/incidenciasdiarias" method="post">
         <div>
-            <label for="provincia">Provincia:</label>
-            <input type="text" name="provincia" placeholder="Escribe la provincia en mayúsculas" required><br>
-            <label for="fecha">Fecha:</label>
-            <input type="date" name="fecha" required><br>
-            <label for="num_casos_prueba_pcr">Pruebas PCR:</label>
-            <input type="text" name="num_casos_prueba_pcr" id="" placeholder="prueba_pcr" required value="{{casos_pcr}}"><br>
-            <label for="num_casos_prueba_test_ac">Tests de anticuerpos:</label>
-            <input type="number" name="num_casos_prueba_test_ac" id="" placeholder="prueba_test_ac" required value="0"><br>
-            <label for="num_casos_prueba_ag">Prueba de antígenos:</label>
-            <input type="number" name="num_casos_prueba_ag" id="" placeholder="prueba_ag" required value="0"><br>
-            <label for="num_casos_prueba_elisa">Test Elisa:</label>
-            <input type="number" name="num_casos_prueba_elisa" id="" placeholder="prueba_elisa" required value="0"><br>
-            <label for="num_casos_prueba_desconocida">Prueba no determinada:</label>
-            <input type="number" name="num_casos_prueba_desconocida" id="" placeholder="prueba_desconocida" required value="0"><br>
+            <div>
+                <label for="provincia">Provincia:</label>
+                <select name="provincia" 
+                       required> 
+                        {% for provincia in provincias %}
+                            <option value='{{provincia.codigo}}'>{{provincia.descripcion}}</option>
+                        {% endfor %}
+                </select>
+            </div>
+            <div>
+                <label for="fecha">Fecha:</label>
+                <input type="date" name="fecha" required
+                       value={{datos.fecha}}>
+            </div>
+            <div>
+                <label for="num_casos_prueba_pcr">Pruebas PCR:</label>
+                <input type="text" name="num_casos_prueba_pcr" 
+                       placeholder="prueba_pcr" required 
+                       value="{{datos.num_casos_prueba_pcr}}">
+            </div>
+            <div>
+                <label for="num_casos_prueba_test_ac">Tests de anticuerpos:</label>
+                <input type="number" name="num_casos_prueba_test_ac" 
+                       placeholder="prueba_test_ac" required 
+                       value="{{datos.num_casos_prueba_test_ac}}">
+            </div>
+            <div>
+                <label for="num_casos_prueba_ag">Prueba de antígenos:</label>
+                <input type="number" name="num_casos_prueba_ag" 
+                       placeholder="prueba_ag" required 
+                       value="{{datos.num_casos_prueba_ag}}">
+            </div>
+            <div>
+                <label for="num_casos_prueba_elisa">Test Elisa:</label>
+                <input type="number" name="num_casos_prueba_elisa" 
+                       placeholder="prueba_elisa" required 
+                       value="{{datos.num_casos_prueba_elisa}}">
+            </div>
+            <div>
+                <label for="num_casos_prueba_desconocida">Prueba no determinada:</label>
+                <input type="number" name="num_casos_prueba_desconocida" 
+                       placeholder="prueba_desconocida" required 
+                       value="{{datos.num_casos_prueba_desconocida}}">
+            </div>
             <button type="submit">Enviar</button>
         </div>
       </form>
+      {% if error != '' %}
+        <p>{{error }}</p>
+      {% endif %}
     </body>
 </html>
